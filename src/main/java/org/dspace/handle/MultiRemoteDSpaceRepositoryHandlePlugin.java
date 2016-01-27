@@ -37,7 +37,9 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 
 /**
  * Extension to the CNRI Handle Server that translates requests to resolve
@@ -98,7 +100,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
         }
         
         // initalize our prefix map
-        this.prefixes = new HashMap<String, String>();
+        this.prefixes = new HashMap<>();
 
         // try to find our configuration
         Properties properties = loadProperties(CONFIG_FILE_NAME);
@@ -302,7 +304,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
         value.setAnyoneCanRead(true);
         value.setAnyoneCanWrite(false);
 
-        List<HandleValue> values = new LinkedList<HandleValue>();
+        List<HandleValue> values = new LinkedList<>();
 
         values.add(value);
 
@@ -361,7 +363,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
 
             url = jsonElement.getAsJsonArray().get(0).getAsString();
         }
-        catch (Exception e)
+        catch (HandleException | IOException | JsonIOException | JsonSyntaxException e)
         {
             if (log.isDebugEnabled())
             {
@@ -445,7 +447,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
         }
 
         List<String> handles = getRemoteDSpaceHandles(naHandle);
-        List<byte[]> results = new LinkedList<byte[]>();
+        List<byte[]> results = new LinkedList<>();
 
         for (String handle : handles)
         {
@@ -460,7 +462,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
     private List<String> getRemoteDSpaceHandles(String naHandle)
             throws HandleException
     {
-        List<String> handles = new ArrayList<String>();
+        List<String> handles = new ArrayList<>();
 
         String endpoint = this.prefixes.get(naHandle);
         if (null == endpoint)
@@ -487,7 +489,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
                 }
             }
         }
-        catch (Exception e)
+        catch (IOException | JsonIOException | JsonSyntaxException e)
         {
             if (log.isDebugEnabled())
             {
@@ -684,7 +686,7 @@ public class MultiRemoteDSpaceRepositoryHandlePlugin implements HandleStorage
                 log.warn("DSpace instance running at " + url + " returns empty prefix list.");
             }
         }
-        catch (Exception ex)
+        catch (IOException | JsonIOException | JsonSyntaxException ex)
         {
             log.warn("Error while loading prefixes from " + endpoint + ", ignoring.", ex);
         }
