@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    The contents of this file are subject to the license and copyright
+    detailed in the LICENSE and NOTICE files at the root of the source
+    tree and available online at
+
+    http://www.dspace.org/license/
+
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -71,12 +80,16 @@
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.11</version>
                 <configuration>
+                    <header>LICENSE_HEADER</header>
+                    <useDefaultExcludes>true</useDefaultExcludes>
+                    <strictCheck>true</strictCheck>
+                    <includes>
+                        <include>src/**</include>
+                    </includes>
                     <excludes>
                         <exclude>**/src/test/resources/**</exclude>
                         <exclude>**/src/test/data/**</exclude>
                         <exclude>**/.gitignore</exclude>
-                        <exclude>src/test/data/dspaceFolder/config/spiders/**</exclude>
-                        <exclude>src/main/java/org/apache/solr/handler/extraction/ExtractingParams.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
@@ -95,7 +108,16 @@
         </plugins>
     </build>
 
-   <licenses>
+    <reporting>
+        <plugins>
+            <plugin>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.8.1</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <licenses>
       <license>
          <name>DuraSpace BSD License</name>
          <url>https://raw.github.com/DSpace/DSpace/master/LICENSE</url>
