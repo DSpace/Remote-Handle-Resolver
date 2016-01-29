@@ -1,5 +1,5 @@
 Remote-Handle-Resolver is a storage plugin for the Handle System 
-resolver, which forwards requests to a remote DSpace instance for 
+resolver, which forwards requests to remote DSpace instances for 
 resolution.  DSpace serves as the "database" for resolving Handle 
 lookups.
 
@@ -9,8 +9,16 @@ org.dspace.handle.MultiRemoteDSpaceRepositoryHandlePlugin as the storage
 back-end.  See the Handle resolver documentation for details.
 
 The plugin must be configured with the location of the remote DSpace 
-instance.  Create a file named "handle-dspace-plugin.cfg" in the 
+instances.  Create a file named "handle-dspace-plugin.cfg" in the 
 resolver's directory.  This file is in Java serialized Properties 
-format:
+format, all properties beginning with "dspace.handle.endpoint" will be
+loaded:
 
-   dspace.handle.endpoint = http://localhost:8080/xmlui/handleresolver
+   dspace.handle.endpoint  = http://localhost:8080/xmlui/handleresolver
+   dspace.handle.endpoint2 = http://localhost:8181/xmlui/handleresolver
+   dspace.handle.endpoint3 = http://localhost:8181/xmlui/handleresolver
+
+This allows you to run the handle server on a sperate machine than your
+DSpace instance.  If you use one handle server for several DSpace
+instances please have in mind that they will still need to use distinct
+handle prefixes.
