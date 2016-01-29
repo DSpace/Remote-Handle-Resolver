@@ -11,14 +11,14 @@ back-end.  See the Handle resolver documentation for details.
 The plugin must be configured with the location of the remote DSpace 
 instances.  Create a file named "handle-dspace-plugin.cfg" in the 
 resolver's directory.  This file is in Java serialized Properties 
-format, all properties beginning with "dspace.handle.endpoint" will be
+format.  All properties beginning with "dspace.handle.endpoint" will be
 loaded:
 
    dspace.handle.endpoint  = http://localhost:8080/xmlui/handleresolver
    dspace.handle.endpoint2 = http://localhost:8181/xmlui/handleresolver
    dspace.handle.endpoint3 = http://localhost:8181/xmlui/handleresolver
 
-This allows you to run the handle server on a sperate machine than your
-DSpace instance.  If you use one handle server for several DSpace
-instances please have in mind that they will still need to use distinct
+This allows you to run the Handle server on a separate machine than your
+DSpace instance.  If you use one Handle server for several DSpace
+instances, please have in mind that they will still need to use distinct
 handle prefixes.
