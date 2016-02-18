@@ -14,7 +14,7 @@ resolver's directory.  This file is in Java serialized Properties
 format.  All properties beginning with "dspace.handle.endpoint" will be
 loaded:
 
-   dspace.handle.endpoint  = http://localhost:8080/xmlui/handleresolver
+   dspace.handle.endpoint1 = http://localhost:8080/xmlui/handleresolver
    dspace.handle.endpoint2 = http://localhost:8181/xmlui/handleresolver
    dspace.handle.endpoint3 = http://localhost:8181/xmlui/handleresolver
 
