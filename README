@@ -16,7 +16,7 @@ loaded:
 
    dspace.handle.endpoint1 = http://localhost:8080/xmlui/handleresolver
    dspace.handle.endpoint2 = http://localhost:8181/xmlui/handleresolver
-   dspace.handle.endpoint3 = http://localhost:8181/xmlui/handleresolver
+   dspace.handle.endpoint3 = http://localhost:8182/xmlui/handleresolver
 
 This allows you to run the Handle server on a separate machine than your
 DSpace instance.  If you use one Handle server for several DSpace
