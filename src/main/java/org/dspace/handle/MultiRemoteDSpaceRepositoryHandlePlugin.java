@@ -50,7 +50,7 @@ import com.google.gson.JsonSyntaxException;
  * <p>
  * This class is intended to be embedded in the CNRI Handle Server. It conforms
  * to the HandleStorage interface that was delivered with Handle Server version
- * 9.1.0.
+ * 9.3.0.
  * </p>
  *
  * @author Andrea Bollini
