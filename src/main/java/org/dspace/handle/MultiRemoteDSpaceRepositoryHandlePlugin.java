@@ -31,7 +31,7 @@ import net.handle.hdllib.HandleStorage;
 import net.handle.hdllib.HandleValue;
 import net.handle.hdllib.ScanCallback;
 import net.handle.hdllib.Util;
-import net.handle.util.StreamTable;
+import net.cnri.util.StreamTable;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -50,7 +50,7 @@ import com.google.gson.JsonSyntaxException;
  * <p>
  * This class is intended to be embedded in the CNRI Handle Server. It conforms
  * to the HandleStorage interface that was delivered with Handle Server version
- * 6.2.0.
+ * 9.3.0.
  * </p>
  *
  * @author Andrea Bollini
